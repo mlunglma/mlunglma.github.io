@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digit Recognition Low Power and Speed Challenge</title>
+    <style>
+        /* General Styles */
+        header {
+            background-image: url('alaskmountain.jpg');
+            background-repeat: no-repeat; /* Prevent repeating */
+            background-size: cover; /* Make the image cover the entire page */
+            background-position: center; /* Center the image */
+            background-attachment: fixed; /* Fix the image while scrolling */
+            color: black;
+            text-align: center;
+            padding: 40px 20px;
+            height: 200px; /* Set the height of the header */
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        h1 {
+            text-align: center;
+        }
+        
+        h2 {
+            text-align: center;
+            color: #004aad;
+        }
+
+        /* Navigation Bar */
+        .topnav {
+            background-color: #333;
+            overflow: hidden;
+        }
+        .topnav a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        .topnav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        .topnav a.active {
+            background-color: #004aad;
+            color: white;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 20px;
+            display: none; /* Hide sections by default */
+        }
+        section.active {
+            display: block; /* Show the active section */
+        }
+        .team-container {
+            display: flex; /* Arrange images in a row */
+            justify-content: center; /* Center the images horizontally */
+            gap: 20px; /* Space between images */
+            margin-top: 20px;
+        }
+        .team-member {
+            width: 200px; /* Fixed width for each image */
+            text-align: center; /* Center text below images */
+        }
+        .team-member img {
+            width: 200px; /* Fixed size for images */
+            height: 200px; /* Fixed height for images */
+            border-radius: 10px; /* Optional rounded corners */
+        }
+
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px 0;
+            background-color: #9eb3d0;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+<header>
+        <h1>Digit Recognition Low Power and Speed Challenge @ ICIP 2025</h1>
+        <p>A challenge of the 2025 IEEE International Conference on Image Processing: <a href=https://2025.ieeeicip.org/>https://2025.ieeeicip.org/</a></p>
+    </header>
+
+    <!-- Navigation Bar -->
+    <div class="topnav">
+        <a href="#overview" class="active" onclick="showSection('overview')">Overview</a>
+        <a href="#participate" onclick="showSection('participate')">Why Participate?</a>
+        <a href="#rules" onclick="showSection('rules')">Rules</a>
+        <a href="#Questions" onclick="showSection('Questions')">Questions</a>
+        <a href="#team" onclick="showSection('team')">Team</a>
+    </div>
+
+    <!-- Sections -->
+    <section id="overview" class="active">
+        <h1>Challenge: Compare your low-power/high-speed FPGA digit recognition design with the best in the world!</h1>
+        <center>
+        
+        <img src="digit.png" alt="Digit Recognition" height="200">
+    </center>
+        <p>Hardware acceleration for machine-learning-based image recognition has become a very important topic in recent years. Especially when using FPGAs, one can obtain fast detection rates at high reliabilities without large infrastructure investments (as compared to an ASIC design) and still maintain low energy requirements. It allows for bringing fast and reliable image detection to edge devices. This has several advantages ranging from enhanced privacy, no communication overhead, lower latency,  and lower energy requirements compared to cloud-based processing. <br><br>
+ <strong> The aim of the challenge is to compare recent developments in FPGA-based hardware accelerators in terms of inference speed and low power while still providing high accuracy rates. </strong>
+ <br><br>For this, the MNIST dataset of handwritten digits is used. MNIST is a widely recognized dataset that allows for easy comparison of different machine learning approaches. </p>
+ 
+  <h2> You are invited to submit your design results. The design that is the fastest while requiring the least energy (see rules for details) wins! </h2>
+    </section>
+
+    <section id="rules">
+        <h2>Rules for participation</h2>
+        <ul>
+                <li><strong>Dataset:</strong> The MNIST Dataset of handwritten digits e.g. from https://github.com/cvdfoundation/mnist or as included in "datasets" of the python package "torchvision" as "MNIST".</li>
+                <li><strong>Allowed FPGAs:</strong> Participants have to synthesize their hardware accelerator design for either the FPGA Xilinx Kintex: XC7K160TFBG484-1 or the Intel FPGA Cyclone V: 5CEFA7F31I7 using Quartus/Vivado (for easy comparison please stick to one of the two FPGAs)</li>
+                <li><strong>Published Learning Code:</strong> Participants have to provide a public online git repository with a code of the model proving the accuracy for the MNIST dataset: a python code including learning as well as a test code covering all hardware non-idealities proving that at least 98&percnt; accuracy on the MNIST test dataset can be reached (Code of the Hardware Design does not have to be made public). </li>
+                <li><strong>Synthesis Results:</strong> The design must fit in one of the two FPGAs (utilization &lt; 100 &percnt;). Participants have to provide synthesis results showing the utilization of one of the two abovementioned FPGAs as well as the maximum obtainable clock speed (outputs of Quartus or Vivado). </li>
+                <li><strong>Speed:</strong> Participants have to show the number of clock cycles (simulation output or credible explaination) required for inference and have to calculate the number of images that can be detected per second</li>
+                <li><strong>Power:</strong> Participants must provide the power consumption data generated by either Vivado (Xilinx; referred to as "Power Report") or Quartus (Intel FPGA; referred to as "Power Analyzer Summary"), using the default toggle rate of 12.5% and the specified maximum clock frequency.</li>
+                <li><strong>Ranking Metric:</strong> The participants with the largest number of image detections per second divided by the total power consumption in Watts (unit: images per second per W) with a design fitting inside one of the mentioned FPGAs obtaining an accuracy of at least 98% wins!</li>
+                <li><strong>Example for clarification:</strong> Assume a participant has a design that allows for 100,000 image detections per second with a power consumption of 2 W and an accuracy greater than 98&percnt;. The participant's score would be calculated as 100,000 / 2 = 50,000 images per second per watt.</li>
+            </ul>
+    </section>
+
+    <section id="participate">
+        <h2>Benefits of participating</h2>
+        <ul>
+                <li><strong>Certificate:</strong> All participants following the rules (see below) get a certificate showing their rank and score as a personalized pdf.</li>
+                <li><strong>Paper:</strong> Participants are encouraged to submit a paper describing their approach via the conference system. The first draft describing the approach is due by May 28<sup>th</sup>. The final results are only due for the camera-ready submission of the Grand Challenge Paper on July 2<sup>nd</sup>. See <a href=https://2025.ieeeicip.org/important-dates/>https://2025.ieeeicip.org/important-dates/</a> for updates on the dates.</li>
+                <li><strong>Conference Event:</strong> Participants with accepted Challenge papers can present their work at the challenge session of the ICIP conference. There the winner will be announced and celebrated.</li>
+                <li> <strong>The first 3 will get a surprise!</strong></li>
+               
+            </ul>
+    </section>
+    
+    <section id="team">
+        <h2>Challenge organizers</h2>
+
+
+        <!-- Team Container -->
+        <div class="team-container">
+            
+            <!-- Team Member 1 -->
+            <div class="team-member">
+                <img src="michael.jpg" alt="Michael Lunglmayr"> <!-- Replace with actual image path -->
+                <h3>Michael Lunglmayr</h3>
+                <p>Johannes Kepler University Linz, Austria</p>
+            </div>
+
+            <!-- Team Member 2 -->
+            <div class="team-member">
+                <img src="daniel.jpg" alt="Daniel Windhager"> <!-- Replace with actual image path -->
+                <h3>Daniel Windhager</h3>
+                <p>Silicon Austria Labs</p>
+            </div>
+
+            <!-- Team Member 3 -->
+            <div class="team-member">
+                <img src="bernhard.jpg" alt="Bernhard A. Moser"> <!-- Replace with actual image path -->
+                <h3>Bernhard A. Moser</h3>
+                <p>Johannes Kepler University Linz and Software Competence Center Hagenberg, Austria</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="Questions">
+        <h2>Questions?</h2>
+        <p>If you have any questions on the challenge feel free to contact: michael.lunglmayr(at)jku.at</p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        A challenge of the ICIP 2025, see <a href=https://2025.ieeeicip.org/>https://2025.ieeeicip.org/</a> for more information.
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => section.classList.remove('active'));
+
+            // Remove active class from all nav links
+            const navLinks = document.querySelectorAll('.topnav a');
+            navLinks.forEach(link => link.classList.remove('active'));
+
+            // Show the selected section
+            document.getElementById(sectionId).classList.add('active');
+
+            // Highlight the active nav link
+            document.querySelector(`.topnav a[href="#${sectionId}"]`).classList.add('active');
+        }
+    </script>
+
+</body>
+</html>
