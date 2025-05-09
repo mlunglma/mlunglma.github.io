@@ -122,55 +122,38 @@
             background-color: #9eb3d0;
             color: black;
         }
-      
-    .ribbon-container {
-      position: absolute;
-      top: 0;
-      right: 0;
-      z-index: 100;
-      width: 450;   /* Breite des Ribbons */
-      height: 120px;  /* Mehr Höhe für 3 Zeilen */
-      pointer-events: none; /* Klicks gehen durch das Ribbon */
-    }
-    .ribbon {
-      position: absolute;
-      top: 0;
-      right: -100px; /* Damit das Ribbon schön über die Ecke ragt */
-      width: 420px;
-      height: 190px;
-      background: linear-gradient(
-        90deg,
-        rgba(255, 215, 0, 0.70) 0%,
-        rgba(255, 195, 0, 0.60) 40%,
-        rgba(255, 248, 220, 0.50) 60%,
-        rgba(255, 215, 0, 0.70) 100%
-      );
-      color: #b22222;
-      font-size: 1.1em;
-      font-weight: bold;
-      padding: 16px 30px;
+        
+    .news-ribbon-container {
+      width: 80%;
+      margin: 0 auto; /* Zentriert das Ribbon */
+      overflow: hidden;
+      background: rgba(0, 0, 0, 0.1);
       display: flex;
-      flex-direction: column;
-      justify-content: center;
       align-items: center;
-      text-align: center;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-      border-radius: 30px;
-      transform: rotate(25deg);
-      letter-spacing: 1.5px;
-      pointer-events: auto; 
-      box-sizing: border-box;
-      line-height: 1.3;
+      height: 48px;
+      position: relative;
     }
-    .ribbon-text {
-      max-width: 200px;   /* Hier wird die Textbreite begrenzt */
-      width: 100%;
-      margin: 0 auto;
-      padding: 0 10px;
-      display: flex;
-      color: #b22222;
-      flex-direction: column;
-      align-items: center;
+       
+    .news-ribbon {
+      white-space: nowrap;
+      overflow: hidden;
+      position: relative;
+      flex: 1;
+      height: 100%;
+    }
+    .news-ribbon-content {
+      display: inline-block;
+      padding-left: 100%;
+      color:  #000;
+      animation: ribbon-scroll 15s linear infinite;
+      font-size: 1.5em;
+      font-weight: bold
+      height: 100%;
+      line-height: 1.5em;
+    }
+    @keyframes ribbon-scroll {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
     }
     
     </style>
@@ -181,14 +164,14 @@
         
         <p>A challenge of the 2025 IEEE International Conference on Image Processing: <a href=https://2025.ieeeicip.org/>https://2025.ieeeicip.org/</a>
         </p>
+        <div class="news-ribbon-container">
+        <div class="news-ribbon">
+        <div class=news-ribbon-content>📢 Deadline for first draft extended to 11<sup>th</sup> of June! 
+        📢 We will have cash prizes! Details will follow! </div></div></div>
         
     </header>
     
-     <div class="ribbon-container">
-    <div class="ribbon">
-    <div class="ribbon-text">Thanks to our generous sponsors, we will have cash prizes! Details and sponsor acknowledgments will follow.</div>
-  </div>
-  </div>
+     
 
     <!-- Navigation Bar -->
     <div class="topnav">
@@ -198,6 +181,12 @@
         <a href="#Questions" onclick="showSection('Questions')">Questions</a>
         <a href="#team" onclick="showSection('team')">Team</a>
         <a href="#submit" onclick="showSection('submit')">How to submit?</a>
+        <div class="news-ribbon">
+      <!-- <span class="news-ribbon-content"> -->
+        <!-- 📢 Deadline for first draft extended to 11<sup>th</sup> of June! &nbsp;&nbsp;&nbsp;&nbsp; -->
+        <!-- 📢 Thanks to our generous sponsors, we will have cash prizes! Details and sponsor acknowledgments will follow... &nbsp;&nbsp;&nbsp;&nbsp; -->
+      <!-- </span> -->
+    </div>
     </div>
     
    
@@ -243,7 +232,7 @@
     <tbody>
         <tr>
             <td>Grand Challenge Paper First Draft Submission (requires only main description of approach without results)</td>
-            <td>28<sup>th</sup> May 2025</td>
+            <td><s>28<sup>th</sup> May 2025</s> 11<sup>th</sup> June 2025 </td>
         </tr>
         <tr>
             <td>Grand Challenge Paper Acceptance Notification</td>
@@ -260,7 +249,7 @@
         <h2>Benefits of participating</h2>
         <ul>
                 <li><strong>Certificate:</strong> All participants following the rules (see Rules tab) get a certificate showing their rank and score as a personalized pdf.</li>
-                <li><strong>Paper:</strong> Participants are encouraged to submit a paper describing their approach via the conference system. The first draft describing the approach is due by May 28<sup>th</sup>. The final results are only due for the camera-ready submission of the Grand Challenge Paper on July 2<sup>nd</sup>. See <a href=https://2025.ieeeicip.org/important-dates/>https://2025.ieeeicip.org/important-dates/</a> for updates on the dates.</li>
+                <li><strong>Paper:</strong> Participants are encouraged to submit a paper describing their approach via the conference system. The first draft describing the approach is due by <s>28<sup>th</sup> May 2025</s> 11<sup>th</sup> June 2025. The final results are only due for the camera-ready submission of the Grand Challenge Paper on July 2<sup>nd</sup>. See <a href=https://2025.ieeeicip.org/important-dates/>https://2025.ieeeicip.org/important-dates/</a> for updates on the dates.</li>
                 <li><strong>Conference Event:</strong> Participants with accepted challenge papers can present their work at the challenge session of the ICIP conference. There the winners will be announced and celebrated.</li>
                 <li> <strong>The first 3 will get a surprise as well as price money!</strong></li>
                
