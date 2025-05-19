@@ -124,7 +124,7 @@
         }
         
     .news-ribbon-container {
-      width: 80%;
+      width: 60%;
       margin: 0 auto; /* Zentriert das Ribbon */
       overflow: hidden;
       background: rgba(0, 0, 0, 0.1);
@@ -156,6 +156,18 @@
       100% { transform: translateX(-100%); }
     }
     
+     .center-container {
+      display: flex;
+      justify-content: center; /* horizontal centering */
+      align-items: center;     /* vertical centering */
+      height: 200px;           /* fill viewport vertically for demo */
+      gap: 20px;               /* optional: space between images */
+    }
+    .center-container img {
+      width: 150px;            /* example size, adjust as needed */
+      height: auto;
+    }
+    
     </style>
 </head>
 <body class="wrapper">
@@ -167,7 +179,7 @@
         <div class="news-ribbon-container">
         <div class="news-ribbon">
         <div class=news-ribbon-content>📢 Deadline for first draft extended to 11<sup>th</sup> of June! 
-        📢 We will have cash prizes! Details will follow! </div></div></div>
+        📢 We will have cash prizes! More details under 🏆 Awards 🏆... </div></div></div>
         
     </header>
     
@@ -181,6 +193,7 @@
         <a href="#Questions" onclick="showSection('Questions')">Questions</a>
         <a href="#team" onclick="showSection('team')">Team</a>
         <a href="#submit" onclick="showSection('submit')">How to submit?</a>
+        <a href="#awards" onclick="showSection('awards')">🏆 Awards 🏆</a>
         <div class="news-ribbon">
       <!-- <span class="news-ribbon-content"> -->
         <!-- 📢 Deadline for first draft extended to 11<sup>th</sup> of June! &nbsp;&nbsp;&nbsp;&nbsp; -->
@@ -206,13 +219,44 @@
  
   <h2> You are invited to submit your FPGA design results. The fastest design requiring the least energy (see rules for details) wins! </h2>
   <h2> <center> <a href=https://cmsworkshops.com/ICIP2025/papers/submission.asp?Type=Challenge&ID=4>Submission Link</a> </center></h2>
+  
+  
+    </section>
+    
+    <section id="awards">
+    <Center>
+    <h2> The first three places will get a surprise and a cash price, 1<sup>st</sup>: 1200€, 2<sup>nd</sup>: 800€, 3<sup>rd</sup>: 400€, awarded by the</h2> <br>
+    <a href="https://www.asai.ac.at/en/">
+  <img src="https://www.asai.ac.at/assets/images/0/asai-logo-farbe-30d346ea.png" alt="https://www.asai.ac.at/en/" style="width:300px; height:auto;"></a> <br>
+  <h2> The prices are sponsored by: </h2>
+  
+  <div class="center-container">
+    <a href="https://www.scch.at/">
+  <img src="./SCCH Logo Schwarz-Weiss lang.png" alt="https://www.scch.at/" style="width:auto; height:120px"></a>
+    <a href="https://silicon-austria-labs.com">
+  <img src="https://silicon-austria-labs.com/Resources/Public/Images/sal-silicon-austria-labs-logo.svg" alt="https://silicon-austria-labs.com" style="width:auto; height:80px;"></a>
+  
+  <a href="https://www.keba.com/">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/f/f7/KEBA_Logo.svg" alt="https://www.keba.com/" style="width:auto; height:80px;"></a>
+  
+  <a href="https://www.kapsch.net">
+  <img src="./Kapsch.png" alt="https://www.kapsch.net" style="width:auto; height:150px;"></a>
+  </div>
+  
+  
+  
+  </Center>
+</a>
+
+<!-- style="vertical-align: top;" -->
+    
     </section>
 
     <section id="rules">
         <h2>Rules for participation</h2>
         <ul>
                 <li><strong>Dataset:</strong> The MNIST Dataset of handwritten digits e.g. from https://github.com/cvdfoundation/mnist or as included in "datasets" of the python package "torchvision" as "MNIST".</li>
-                <li><strong>Allowed FPGAs:</strong> Participants have to synthesize their hardware accelerator design for either the FPGA Xilinx Kintex: XC7K160TFBG484-1 or the Intel FPGA Cyclone V: 5CEFA7F31I7 using Quartus/Vivado (for easy comparison please stick to one of the two FPGAs)</li>
+                <li><strong>Allowed FPGAs:</strong> Participants have to synthesize their hardware accelerator design for either the FPGA Xilinx Kintex: XC7K160TFBG484-1 or the Intel FPGA Cyclone V: 5CEFA7F31I7 using Quartus/Vivado (for easy comparison please stick to one of the two FPGAs). Participants are not required to provide on-board tests!</li>
                 <li><strong>Published Learning Code:</strong> Participants have to provide a public online git repository with a code of the model proving the accuracy for the MNIST dataset: a python code including learning as well as a test code covering all hardware non-idealities proving that at least 97.5&percnt; accuracy on the MNIST test dataset can be reached (Code of the Hardware Design does not have to be made public). </li>
                 <li><strong>Synthesis Results:</strong> The design must fit in one of the two FPGAs (utilization &lt; 100 &percnt;). Participants have to provide synthesis results showing the utilization of one of the two abovementioned FPGAs as well as the maximum obtainable clock speed (outputs of Quartus or Vivado). </li>
                 <li><strong>Speed:</strong> Participants have to show the number of clock cycles (simulation output or credible explaination) required for inference and have to calculate the number of images that can be detected per second</li>
@@ -283,7 +327,7 @@
             <div class="team-member">
                 <img src="bernhard.jpg" alt="Bernhard A. Moser"> <!-- Replace with actual image path -->
                 <h3>Bernhard A. Moser</h3>
-                <p>Johannes Kepler University Linz and Software Competence Center Hagenberg, Austria</p>
+                <p>Johannes Kepler University Linz/SAL Intelligent Wireless Systems Lab and Software Competence Center Hagenberg, Austria</p>
             </div>
 
         </div>
@@ -296,7 +340,7 @@
 
     <!-- Footer -->
     <footer>
-        A challenge of the ICIP 2025, see <a href=https://2025.ieeeicip.org/>https://2025.ieeeicip.org/</a> for more information.
+        A challenge of the ICIP 2025, see <a href=https://2025.ieeeicip.org/grand-challenge/>https://2025.ieeeicip.org/grand-challenge/</a> for more information.
     </footer>
 
     <!-- JavaScript -->
