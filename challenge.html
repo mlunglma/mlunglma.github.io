@@ -92,10 +92,22 @@
         }
 
         th {
-            background-color: #04AA6D; /* Header background color */
+            background-color: #004aad; /* Header background color */
             color: white; /* Header text color */
             font-weight: bold;
         }
+        
+        .gold-text {
+        font-weight: bold;
+        background-image: linear-gradient(
+          to right,
+          #cb9b51 0%,
+          #f6e27a 100%
+        );
+        color: transparent;
+        -webkit-background-clip: text;
+        background-clip: text;
+      }
 
         tr:nth-child(even) {
             background-color: #f2f2f2; /* Alternate row colors for readability */
@@ -196,6 +208,7 @@
         <a href="#awards" onclick="showSection('awards')">🏆 Awards 🏆</a>
         <a href="#Questions" onclick="showSection('Questions')">Questions?</a>
         <a href="#schedule" onclick="showSection('schedule')">📅 Schedule @ ICIP 📅 </a>
+        <a href="#Ranking" onclick="showSection('Ranking')">🏆 <span class="gold-text">Ranking</span> 🏆 </a>
         <div class="news-ribbon">
       <!-- <span class="news-ribbon-content"> -->
         <!-- 📢 Deadline for first draft extended to 11<sup>th</sup> of June! &nbsp;&nbsp;&nbsp;&nbsp; -->
@@ -320,6 +333,37 @@
             <td>Discretized Boosted Decision Trees for High-Speed FPGA-Optimized DigitRecognition</td>
             <td>Martin Loretz</td>
         </tr>
+    </tbody>
+</table>     
+    </section>
+    
+     <section id="Ranking">
+        <h1> Ranking:  </h2>
+       <table>
+       <thead>
+    <tr>
+      <th>Place</th>
+      <th>Name</th>
+      <th>images/second/W</th>
+    </tr>
+  </thead>
+    <tbody>
+        <tr>
+            <td>1<sup>st</sup></td>
+            <td>Martin Loretz</td>
+            <td>1 024 000 000 </td>
+        </tr>
+        <tr>
+            <td>2<sup>nd</sup></td>
+            <td>Daniel Windhager et. al.</td>
+            <td>3 890 000 </td>
+        </tr>
+        <tr>
+            <td>3<sup>rd</sup></td>
+            <td>Alessio Caviglia et. al.</td>
+            <td>81 710 </td>
+        </tr>
+        
     </tbody>
 </table>     
     </section>
